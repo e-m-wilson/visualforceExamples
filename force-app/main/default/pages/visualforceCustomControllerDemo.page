@@ -1,8 +1,9 @@
 <apex:page controller="visualforceCustomController">
 
 <apex:form >
-    <apex:pageBlock >
-        <apex:pageBlockSection >
+    <apex:pageBlock>
+        <apex:pageBlockSection>
+            
             <apex:pageBlockTable value="{!accounts}" var="acc">
                 <apex:column headerValue="Account Name">
                     <apex:commandLink action="{!goToAccount}" value="{!acc.name}">
@@ -16,7 +17,13 @@
                     </apex:outputField>
                 </apex:column>
                 <apex:column value="{!acc.industry}"/>
+                <apex:column>
+                    <apex:commandLink value="Delete" action="{!deleteRecord}">
+                        <apex:param name="accId" value="{!acc.Id}" assignTo="{!accId}"/>
+                    </apex:commandLink>
+                </apex:column>
             </apex:pageBlockTable>
+            
         </apex:pageBlockSection>
         <apex:pageBlockButtons >
             <apex:commandButton value="Previous" action="{!previous}"/>

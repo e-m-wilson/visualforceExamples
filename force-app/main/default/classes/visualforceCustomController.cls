@@ -34,4 +34,18 @@ public with sharing class visualforceCustomController {
         pr.getParameters().put('id', this.accId);
         return pr;
     }
+
+    public void deleteRecord() {
+        
+        Account accToDelete = new Account();
+        List<Account> accList = this.getAccounts();
+        for(Account acc : accList){
+            if(acc.id == this.accId) {
+                accToDelete = acc;
+            }
+        } 
+        delete accToDelete;
+        ssc = null;
+        this.getAccounts();
+    }
 }
