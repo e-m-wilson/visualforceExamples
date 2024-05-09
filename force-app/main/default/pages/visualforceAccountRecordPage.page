@@ -1,0 +1,4 @@
+<apex:page standardController="Account">
+
+    <h1>The current account is: {!account.name}</h1>
+</apex:page>
